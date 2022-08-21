@@ -8,5 +8,19 @@
     tools:context=".MainActivity">
 
 
+    <EditText
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:id="@+id/cost_of_service"
+        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:inputType="numberDecimal"
+        android:hint="Cost of Service"
+
+
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
