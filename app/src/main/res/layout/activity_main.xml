@@ -17,9 +17,16 @@
         android:layout_width="160dp"
         android:inputType="numberDecimal"
         android:hint="Cost of Service"
-
-
         />
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
+
+        android:id="@+id/service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How was the service?"/>
 
 
 
