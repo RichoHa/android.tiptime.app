@@ -28,6 +28,14 @@
         android:layout_height="wrap_content"
         android:text="How was the service?"/>
 
+    <Switch
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Round up tip?"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
