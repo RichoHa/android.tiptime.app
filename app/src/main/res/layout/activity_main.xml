@@ -5,27 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/light_green">
 
     <EditText
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
         android:id="@+id/cost_of_service"
-        android:layout_height="wrap_content"
         android:layout_width="160dp"
-        android:inputType="numberDecimal"
+
+        android:layout_height="wrap_content"
+        android:autofillHints=""
         android:hint="@string/cost_of_service"
-        android:autofillHints="" />
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="@color/dark_brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
-
         android:id="@+id/service_question"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-        android:text="@string/how_was_the_service"/>
+        android:text="@string/how_was_the_service"
+        android:textColor="@color/dark_brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
 
     <RadioGroup
         app:layout_constraintTop_toBottomOf="@id/service_question"
@@ -57,34 +61,38 @@
     </RadioGroup>
 
     <Switch
-        app:layout_constraintTop_toBottomOf="@id/tip_options"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
         android:id="@+id/round_up_tip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/round_up_tip"
+
         android:checked="true"
+        android:minHeight="48dp"
+        android:text="@string/round_up_tip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_options"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
-        app:layout_constraintTop_toBottomOf="@id/round_up_tip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
         android:id="@+id/calculate_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/calculate" />
+
+        android:backgroundTint="@color/dark_green"
+        android:text="@string/calculate"
+        android:textColor="#5D4037"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/round_up_tip" />
 
     <TextView
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculate_button"
-
         android:id="@+id/tip_result"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-        android:text="@string/tip_amount" />
+        android:text="@string/tip_amount"
+        android:textColor="@color/dark_brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculate_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
