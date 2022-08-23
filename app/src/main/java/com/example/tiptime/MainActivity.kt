@@ -3,7 +3,7 @@ package com.example.tiptime
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tiptime.databinding.ActivityMainBinding
-import java.text.NumberFormat
+import java.text.NumberFormat //Required for the Ceil function (Round up)
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +21,12 @@ class MainActivity : AppCompatActivity() {
         //Take editable text [not string, but actually editable], require converting to string
         val stringInTextField = binding.costOfService.text.toString()
         //Change the string to a double
-        val cost = stringInTextField.toDouble()
+        val cost = stringInTextField.toDoubleOrNull()
+
+        if (cost == null) {
+            return
+        }
+
 
         //based on the ID chosen, different double value is saved to tipPercentage
         val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
@@ -30,16 +35,22 @@ class MainActivity : AppCompatActivity() {
             else -> 0.15
         }
 
+        //Calculating the tip value
         var tip = tipPercentage * cost
 
+        //Determining if the switch is checked/true
         val roundUp = binding.roundUpTip.isChecked
 
+        //if switch is clicked, change the tip value
         if (roundUp) {
             tip = kotlin.math.ceil(tip)
         }
 
+        //To get currency value format- remember to pick java Text.
         NumberFormat.getCurrencyInstance()
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
+
+        //updating the tip results
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 
