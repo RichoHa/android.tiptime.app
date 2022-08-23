@@ -13,17 +13,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //Begin the calculation once the button is pressed.
         binding.calculateButton.setOnClickListener{ calculateTip() }
     }
 
     fun calculateTip() {
+        //Take editable text [not string, but actually editable], require converting to string
         val stringInTextField = binding.costOfService.text.toString()
+        //Change the string to a double
         val cost = stringInTextField.toDouble()
 
-        val selectedId = binding.tipOptions.checkedRadioButtonId
-
-        val tipPercentage = when (selectedId) {
+        //based on the ID chosen, different double value is saved to tipPercentage
+        val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
