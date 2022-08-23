@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val cost = stringInTextField.toDoubleOrNull()
 
         if (cost == null) {
+            binding.tipResult.text = ""
             return
         }
 
