@@ -7,7 +7,7 @@ import java.text.NumberFormat //Required for the Ceil function (Round up)
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding.calculateButton.setOnClickListener{ calculateTip() }
     }
 
-    fun calculateTip() {
+    private fun calculateTip() {
         //Take editable text [not string, but actually editable], require converting to string
         val stringInTextField = binding.costOfService.text.toString()
         //Change the string to a double
@@ -40,10 +40,8 @@ class MainActivity : AppCompatActivity() {
         var tip = tipPercentage * cost
 
         //Determining if the switch is checked/true
-        val roundUp = binding.roundUpTip.isChecked
-
         //if switch is clicked, change the tip value
-        if (roundUp) {
+        if (binding.roundUpTip.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
 
